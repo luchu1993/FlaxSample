@@ -1,0 +1,13 @@
+{
+	"ID": "9a6c307d4ee3e4f21dac2e86a5c0ed16",
+	"TypeName": "FlaxEditor.Content.Settings.NetworkSettings",
+	"EngineBuild": 6606,
+	"Data": {
+	"MaxClients": 100,
+	"ProtocolVersion": 1,
+	"NetworkFPS": 60.0,
+	"Address": "127.0.0.1",
+	"Port": 7777,
+	"NetworkDriver": "FlaxEngine.Networking.ENetDriver"
+}
+}

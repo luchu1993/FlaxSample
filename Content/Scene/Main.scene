@@ -1,0 +1,134 @@
+{
+	"ID": "a30c849942b07dc632c35c93b69df6cd",
+	"TypeName": "FlaxEngine.SceneAsset",
+	"EngineBuild": 6606,
+	"Data": [
+		{
+			"ID": "a30c849942b07dc632c35c93b69df6cd",
+			"TypeName": "FlaxEngine.Scene",
+			"Lightmaps": [
+				{
+					"Lightmap0": "00000000000000000000000000000000",
+					"Lightmap1": "00000000000000000000000000000000",
+					"Lightmap2": "00000000000000000000000000000000"
+				}
+			],
+			"LightmapSettings": {
+				"IndirectLightingIntensity": 1.0,
+				"GlobalObjectsScale": 1.0,
+				"ChartsPadding": 3,
+				"AtlasSize": 1024,
+				"BounceCount": 1,
+				"CompressLightmaps": true,
+				"UseGeometryWithNoMaterials": true,
+				"Quality": 10
+			}
+		},
+		{
+			"ID": "129470c4474cd317317524a1ff17c57b",
+			"TypeName": "FlaxEngine.DirectionalLight",
+			"ParentID": "a30c849942b07dc632c35c93b69df6cd",
+			"Name": "Sun",
+			"Transform": {
+				"Translation": {
+					"X": 40.0,
+					"Y": 160.0,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.3826834559440613,
+					"Y": 0.0,
+					"Z": 0.0,
+					"W": 0.9238795042037964
+				}
+			}
+		},
+		{
+			"ID": "e32ecd64408599e50e7af6bf6ca9b309",
+			"TypeName": "FlaxEngine.Sky",
+			"ParentID": "a30c849942b07dc632c35c93b69df6cd",
+			"Name": "Sky",
+			"Transform": {
+				"Translation": {
+					"X": 40.0,
+					"Y": 150.0,
+					"Z": 0.0
+				}
+			},
+			"Sun": "129470c4474cd317317524a1ff17c57b"
+		},
+		{
+			"ID": "536920534b8db34a5505788793e8fe5a",
+			"TypeName": "FlaxEngine.SkyLight",
+			"ParentID": "a30c849942b07dc632c35c93b69df6cd",
+			"Name": "SkyLight",
+			"Brightness": 2.5,
+			"CustomTexture": "c54410104ff39427bc11e5bc761d66b0"
+		},
+		{
+			"ID": "598f646e48367881a1eb72aa34128252",
+			"TypeName": "FlaxEngine.Camera",
+			"ParentID": "a30c849942b07dc632c35c93b69df6cd",
+			"Name": "Camera",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 150.0,
+					"Z": -300.0
+				}
+			}
+		},
+		{
+			"ID": "49da69e14fbf7276e1f619b60c9d0944",
+			"TypeName": "FlaxEngine.AudioListener",
+			"ParentID": "598f646e48367881a1eb72aa34128252",
+			"Name": "Audio Listener"
+		},
+		{
+			"ID": "c4bc6a034c19b48e09f9b189d8f9e291",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "a30c849942b07dc632c35c93b69df6cd",
+			"Name": "Floor",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": -5.0,
+					"Z": 0.0
+				},
+				"Scale": {
+					"X": 25.0,
+					"Y": 0.10000000149011612,
+					"Z": 25.0
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "240e8f094ff3f4eef7ed399961c41d57",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "a30c849942b07dc632c35c93b69df6cd",
+			"Name": "Character",
+			"SkinnedModel": "99e0139b48b7e6be52c67b8d5ca3b3b9",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		}
+	]
+}

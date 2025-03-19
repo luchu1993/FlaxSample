@@ -1,0 +1,70 @@
+{
+	"ID": "f2a930874d5f07167bc5b78951ecc944",
+	"TypeName": "Game.ExpressionGraph",
+	"EngineBuild": 6606,
+	"Data": {
+		"VisjectSurface": "VkcJdVgbAAAEAAAAAQAAAAEAAAABAAEAAgAAAAEABgAEAAAADwADAAMAAAABAAMABwAAAABZm2bz8yBAQYefvCOqGALFBQAAADcAAAANABQABAABBwAAAAAAAMhCAAAAAAAAAAABAAAHAAAAAAEAAwAAAAIBAAAACwAAAAAAAAAAAAAADAAAAJmXkUNHbTDDAAAAAAEAAAAUAAAAAFmbZvPzIEBBh5+8I6oYAsUBAAAHAAAAAAEABAAAAAABAAAACwAAAAAAAAAAAAAADAAAANPQRsNHbTDDAAAAAAAAAAACAAAAAAAAAAEAAgAAAAABAAAAAAABAAMAAAAAAQAAAAsAAAAAAAAAAAAAAAwAAABCQ0PCR20wwwAAAAACAAAABwAAAAAAAAAABwAAAAAAACBBAwAAAAAAAAABAAQAAAABAQAAAAAAAAACAAAAAAABAAEAAAAAAQAAAAsAAAAAAAAAAAAAAAwAAABeXspCR20wwwAAAAABAAAACgAAAAAAAAAAAAAADAAAACHR1UIRd4/CtKNLPwk=",
+		"Parameters": [
+			{
+				"Name": "Value",
+				"Index": 0,
+				"Value": 100.0,
+				"OutputIndex": 0
+			}
+		],
+		"Nodes": [
+			{
+				"GroupId": 6,
+				"TypeId": 1,
+				"InputValues": [
+					null
+				],
+				"InputIndices": [
+					0
+				],
+				"OutputIndices": [
+					1
+				]
+			},
+			{
+				"GroupId": 3,
+				"TypeId": 15,
+				"InputValues": [
+					null
+				],
+				"InputIndices": [
+					1
+				],
+				"OutputIndices": [
+					1
+				]
+			},
+			{
+				"GroupId": 3,
+				"TypeId": 1,
+				"InputValues": [
+					0.0,
+					10.0
+				],
+				"InputIndices": [
+					1,
+					-1
+				],
+				"OutputIndices": [
+					1
+				]
+			},
+			{
+				"GroupId": 1,
+				"TypeId": 1,
+				"InputValues": [
+					null
+				],
+				"InputIndices": [
+					1
+				],
+				"OutputIndices": []
+			}
+		]
+	}
+}
