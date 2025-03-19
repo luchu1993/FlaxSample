@@ -3,12 +3,12 @@
 	"TypeName": "Game.ExpressionGraph",
 	"EngineBuild": 6606,
 	"Data": {
-		"VisjectSurface": "VkcJdVgbAAAEAAAAAQAAAAEAAAABAAEAAgAAAAEABgAEAAAADwADAAMAAAABAAMABwAAAABZm2bz8yBAQYefvCOqGALFBQAAADcAAAANABQABAABBwAAAAAAAMhCAAAAAAAAAAABAAAHAAAAAAEAAwAAAAIBAAAACwAAAAAAAAAAAAAADAAAAJmXkUNHbTDDAAAAAAEAAAAUAAAAAFmbZvPzIEBBh5+8I6oYAsUBAAAHAAAAAAEABAAAAAABAAAACwAAAAAAAAAAAAAADAAAANPQRsNHbTDDAAAAAAAAAAACAAAAAAAAAAEAAgAAAAABAAAAAAABAAMAAAAAAQAAAAsAAAAAAAAAAAAAAAwAAABCQ0PCR20wwwAAAAACAAAABwAAAAAAAAAABwAAAAAAACBBAwAAAAAAAAABAAQAAAABAQAAAAAAAAACAAAAAAABAAEAAAAAAQAAAAsAAAAAAAAAAAAAAAwAAABeXspCR20wwwAAAAABAAAACgAAAAAAAAAAAAAADAAAACHR1UIRd4/CtKNLPwk=",
+		"VisjectSurface": "VkcJdVgbAAAGAAAAAQAAAAEAAAABAAEABQAAAAMAAQACAAAACQADAAMAAAABAAYABgAAAAMAAwAEAAAADwADAAcAAAAAWZtm8/MgQEGHn7wjqhgCxQUAAAAyAAIAAAANAAQAAQcAAAAAAAAAPwAAAAAAAAAAAQAABwAAAAABAAQAAAABAQAAAAsAAAAAAAAAAAAAAAwAAACZl5FDR20wwwAAAAAAAAAAAQAABwAAAAABAAYAAAAAAQAAAAsAAAAAAAAAAAAAAAwAAAA0tBDER20wwwAAAAAAAAAAAgAAAAAAAAABAAYAAAACAQAAAAAAAQAEAAAAAAEAAAALAAAAAAAAAAAAAAAMAAAAztBGw0dtMMMAAAAAAQAAABQAAAAAWZtm8/MgQEGHn7wjqhgCxQEAAAcAAAAAAQAGAAAAAQEAAAALAAAAAAAAAAAAAAAMAAAANLQQxI7agMIAAAAAAgAAAAcAAAAAAACAPwcAAAAAAACAPwMAAAAAAAAAAQAFAAAAAAEAAAAAAAEAAwAAAAACAAAAAAABAAIAAAAAAQAAAAsAAAAAAAAAAAAAAAwAAABnaMLDR20wwwAAAAAAAAAAAgAAAAAAAAABAAIAAAABAQAAAAAAAQABAAAAAAEAAAALAAAAAAAAAAAAAAAMAAAAeF7wQWiiFcMAAAAAAQAAAAoAAAAAAAAAAAAAAAwAAACxPtdC2JjWwlByNT8J",
 		"Parameters": [
 			{
-				"Name": "Value",
+				"Name": "Scale",
 				"Index": 0,
-				"Value": 100.0,
+				"Value": 0.5,
 				"OutputIndex": 0
 			}
 		],
@@ -24,7 +24,48 @@
 				],
 				"OutputIndices": [
 					1
-				]
+				],
+				"Context": null
+			},
+			{
+				"GroupId": 1,
+				"TypeId": 3,
+				"InputValues": [],
+				"InputIndices": [],
+				"OutputIndices": [
+					2
+				],
+				"Context": null
+			},
+			{
+				"GroupId": 3,
+				"TypeId": 3,
+				"InputValues": [
+					1.0,
+					1.0
+				],
+				"InputIndices": [
+					2,
+					1
+				],
+				"OutputIndices": [
+					1
+				],
+				"Context": null
+			},
+			{
+				"GroupId": 3,
+				"TypeId": 9,
+				"InputValues": [
+					null
+				],
+				"InputIndices": [
+					1
+				],
+				"OutputIndices": [
+					1
+				],
+				"Context": null
 			},
 			{
 				"GroupId": 3,
@@ -37,22 +78,8 @@
 				],
 				"OutputIndices": [
 					1
-				]
-			},
-			{
-				"GroupId": 3,
-				"TypeId": 1,
-				"InputValues": [
-					0.0,
-					10.0
 				],
-				"InputIndices": [
-					1,
-					-1
-				],
-				"OutputIndices": [
-					1
-				]
+				"Context": null
 			},
 			{
 				"GroupId": 1,
@@ -63,7 +90,8 @@
 				"InputIndices": [
 					1
 				],
-				"OutputIndices": []
+				"OutputIndices": [],
+				"Context": null
 			}
 		]
 	}

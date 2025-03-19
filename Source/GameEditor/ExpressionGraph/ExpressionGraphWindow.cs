@@ -4,38 +4,10 @@ using System.Linq;
 using FlaxEditor.Content;
 using FlaxEditor.Scripting;
 using FlaxEditor.Surface;
-using FlaxEditor.Viewport.Previews;
 using FlaxEngine;
-using FlaxEngine.GUI;
 
 namespace Game.Editor
 {
-    public class ExpressionGraphPreview : AssetPreview
-    {
-        public ExpressionGraphPreview(bool useWidgets): base(useWidgets)
-        {
-        }
-        
-        public ExpressionGraph ExpressionGraph { get; set; }
-        
-        public override void Update(float deltaTime)
-        {
-            base.Update(deltaTime);
-            
-            // Manually update simulation
-            ExpressionGraph?.Update();
-        }
-
-        public override void Draw()
-        {
-            base.Draw();
-            if (ExpressionGraph == null) return;
-            
-            Render2D.DrawText(Style.Current.FontLarge, $"Float:{ExpressionGraph.OutputFloat}",
-                new Rectangle(Float2.Zero, Size), Color.Wheat, TextAlignment.Near, TextAlignment.Far);
-        }
-    }
-
     public class ExpressionGraphWindow : VisjectSurfaceWindow<JsonAsset, ExpressionGraphSurface, ExpressionGraphPreview>
     {
         private readonly ScriptType[] _newParameterTypes =

@@ -19,7 +19,7 @@ namespace Game.Editor
         [
             new NodeArchetype()
             {
-                TypeID = MainNodeTypeId,
+                TypeID = 1,
                 Title = "ExpressionGraph",
                 Description = "Main number graph node",
                 Flags = NodeFlags.AllGraphs | NodeFlags.NoRemove | NodeFlags.NoSpawnViaGUI | NodeFlags.NoCloseButton,
@@ -36,10 +36,23 @@ namespace Game.Editor
                 Title = "Random float",
                 Description = "A random float",
                 Flags = NodeFlags.AllGraphs,
-                Size = new Vector2(150, 30),
+                Size = new Vector2(150, 40),
                 Elements =
                 [
                     NodeElementArchetype.Factory.Output(0, "Float", typeof(float), 0)
+                ]
+            },
+            // Get X
+            new NodeArchetype()
+            {
+                TypeID = 3,
+                Title = "Get X",
+                Description = "Get the X coordinate",
+                Flags = NodeFlags.AllGraphs,
+                Size = new Vector2(150, 40),
+                Elements = 
+                [
+                    NodeElementArchetype.Factory.Output(1, "X", typeof(float), 0)
                 ]
             }
         ];
@@ -54,7 +67,6 @@ namespace Game.Editor
                 Archetypes = ExpressionGraphNodes
             },
             // All math nodes
-
             new GroupArchetype
             {
                 GroupID = 3,
@@ -63,7 +75,6 @@ namespace Game.Editor
                 Archetypes = FlaxEditor.Surface.Archetypes.Math.Nodes
             },
             // Just a single parameter node
-
             new GroupArchetype
             {
                 GroupID = 6,

@@ -13,7 +13,7 @@ namespace Game
         public int[] InputIndices;
         public int[] OutputIndices;
 
-        private ExpressionGraphContext Context { get; set; }
+        public ExpressionGraphContext Context { get; set; }
 
         public void Execute(ExpressionGraphContext context)
         {

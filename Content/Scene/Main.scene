@@ -119,6 +119,7 @@
 			"ParentID": "a30c849942b07dc632c35c93b69df6cd",
 			"Name": "Character",
 			"SkinnedModel": "99e0139b48b7e6be52c67b8d5ca3b3b9",
+			"AnimationGraph": "c16c1a9a4d99b2ce50890796c7924836",
 			"Buffer": {
 				"Entries": [
 					{

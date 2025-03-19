@@ -9,6 +9,7 @@ namespace Game
     {
         public List<object> Variables;
         public Action<ExpressionGraphNode> ExecuteNode;
+        public float XCoordinate;
     }
    
     public sealed partial class ExpressionGraph
@@ -23,13 +24,14 @@ namespace Game
         private ExpressionGraphNode _outputNode;
         private ExpressionGraphContext _context;
 
-        private static Dictionary<int, Action<ExpressionGraphNode>> NodeActions = new();
+        private static readonly Dictionary<int, Action<ExpressionGraphNode>> NodeActions = new();
         private static readonly Random _rng = new Random();
         
         static ExpressionGraph()
         {
             AddAction(1, 1, (_) => { }); 
             AddAction(1, 2, (node) => { node.Return<float>(0,_rng.Next());});
+            AddAction(1, 3, (node) => { node.Return<float>(0, node.Context.XCoordinate);});
             
             AddAction(3, 1, (node) => { node.Return<float>(0, node.InputAs<float>(0) + node.InputAs<float>(1)); });
             AddAction(3, 2, (node) => { node.Return<float>(0, node.InputAs<float>(0) - node.InputAs<float>(1)); });
@@ -60,14 +62,22 @@ namespace Game
                 OnNodesSet();
             }
         }
-        
-        [NoSerialize]
-        public float OutputFloat { get; private set; }
+
+        [NoSerialize] public float[] OutputFloats { get; private set; } = new float[100];
 
         public void Update()
         {
             if (Nodes == null || Nodes.Length <= 0) return;
 
+            for (int i = 0; i < 100; ++i)
+            {
+                _context.XCoordinate = i;
+                EvaluateOutput(i);
+            }
+        }
+
+        private void EvaluateOutput(int index)
+        {
             for (int i = 0; i < _context.Variables.Count; i++)
             {
                 _context.Variables[i] = null;
@@ -83,7 +93,7 @@ namespace Game
                 Nodes[i].Execute(_context);
             }
 
-            OutputFloat = _outputNode.InputAs<float>(0);
+            OutputFloats[index] = _outputNode.InputAs<float>(0);
         }
         
         private void OnNodesSet()

@@ -13,7 +13,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
-[assembly: Guid("16c5a286-1807-f70b-c294-453405150000")]
+[assembly: Guid("16c5a286-8392-d804-c294-453405150000")]
 [assembly: AssemblyVersion("1.0")]
 [assembly: AssemblyFileVersion("1.0")]
 [assembly: DisableRuntimeMarshalling]
