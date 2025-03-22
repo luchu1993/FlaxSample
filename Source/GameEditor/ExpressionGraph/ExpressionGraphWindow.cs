@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using FlaxEditor.Content;
+using FlaxEditor.GUI;
 using FlaxEditor.Scripting;
 using FlaxEditor.Surface;
+using FlaxEditor.Windows.Assets;
 using FlaxEngine;
 
 namespace Game.Editor
@@ -75,7 +77,29 @@ namespace Game.Editor
                 Enabled = false
             };
             
-            SurfaceUtils.PerformCommonSetup(this, _toolstrip, _surface, out _saveButton, out _undoButton, out _redoButton);
+            PerformCommonSetup(this, _toolstrip, _surface, out _saveButton, out _undoButton, out _redoButton);
+        }
+        
+        internal static void PerformCommonSetup(AssetEditorWindow window, ToolStrip toolStrip, VisjectSurface surface,
+            out ToolStripButton saveButton, out ToolStripButton undoButton, out ToolStripButton redoButton)
+        {
+            var editor = window.Editor;
+            var inputOptions = editor.Options.Options.Input;
+            var undo = surface.Undo;
+
+            // Toolstrip
+            saveButton = toolStrip.AddButton(editor.Icons.Save64, window.Save).LinkTooltip("Save", ref inputOptions.Save);
+            toolStrip.AddSeparator();
+            undoButton = toolStrip.AddButton(editor.Icons.Undo64, undo.PerformUndo).LinkTooltip("Undo", ref inputOptions.Undo);
+            redoButton = toolStrip.AddButton(editor.Icons.Redo64, undo.PerformRedo).LinkTooltip("Redo", ref inputOptions.Redo);
+            toolStrip.AddSeparator();
+            toolStrip.AddButton(editor.Icons.Search64, editor.ContentFinding.ShowSearch).LinkTooltip("Open content search tool",  ref inputOptions.Search);
+            toolStrip.AddButton(editor.Icons.CenterView64, surface.ShowWholeGraph).LinkTooltip("Show whole graph");
+
+            // Setup input actions
+            window.InputActions.Add(options => options.Undo, undo.PerformUndo);
+            window.InputActions.Add(options => options.Redo, undo.PerformRedo);
+            window.InputActions.Add(options => options.Search, editor.ContentFinding.ShowSearch);
         }
         
         protected override void UnlinkItem()

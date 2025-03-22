@@ -35,7 +35,7 @@ namespace Game.Editor
                 _graphValues = new float[ExpressionGraph.OutputFloats.Length];
             }
 
-            Vector2 scale = new Vector2(Width / _graphValues.Length, -10f);
+            Vector2 scale = new Vector2(Width / _graphValues.Length, Height / _graphValues.Length * -1f);
             Vector2 offset = new Vector2(0, Height / 2f);
 
             // Horizontal line

@@ -11,6 +11,7 @@ namespace Game.Editor
             _expressionGraphProxy = new ExpressionGraphProxy();
             
             Editor.ContentDatabase.AddProxy(_expressionGraphProxy);
+            Editor.ContentDatabase.Rebuild();
         }
 
         public override void DeinitializeEditor()

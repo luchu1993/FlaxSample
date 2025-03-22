@@ -12,6 +12,10 @@ namespace Game.Editor
     {
         private const int MainModeGroupId = 1;
         private const int MainNodeTypeId = 1;
+        private const int ParameterGroupId = 6;
+        
+        private const int CurvesGroupId = 7;
+        private const int FloatCurveTypeId = 12;
         
         private readonly NodeVariableIndexLookup _indexLookup = new ();
 
@@ -81,6 +85,14 @@ namespace Game.Editor
                 Name = "Parameters",
                 Color = new Color(52, 73, 94),
                 Archetypes = [ FlaxEditor.Surface.Archetypes.Parameters.Nodes[0] ]
+            },
+            
+            new GroupArchetype()
+            {
+                GroupID = 7,
+                Name = "Curves",
+                Color = new Color(52, 73, 94),
+                Archetypes = [ FlaxEditor.Surface.Archetypes.Tools.Nodes[11] ]
             }
         ];
         
@@ -172,7 +184,6 @@ namespace Game.Editor
 
         private ExpressionGraphNode TransferToGraphNode(SurfaceNode surfaceNode, Dictionary<Guid, ExpressionGraphParameter> graphParameters)
         {
-            GetParameterGetterNodeArchetype(out ushort paramGetGroupId);
             
             List<object> inputValues = new List<object>();
             List<int> outputIndices = new List<int>();
@@ -200,15 +211,43 @@ namespace Game.Editor
             int groupId = surfaceNode.GroupArchetype.GroupID;
             int typeId = surfaceNode.Archetype.TypeID;
 
-            if (surfaceNode.GroupArchetype.GroupID == paramGetGroupId)
+            if (surfaceNode.GroupArchetype.GroupID == ParameterGroupId)
             {
                 var graphParam = graphParameters[(Guid)surfaceNode.Values[0]];
                 return new ExpressionGraphNode()
                 {
-                    GroupId = surfaceNode.GroupArchetype.GroupID,
-                    TypeId = surfaceNode.Archetype.TypeID,
+                    GroupId = groupId,
+                    TypeId = typeId,
                     InputValues = [null],
                     InputIndices = [graphParam.OutputIndex],
+                    OutputIndices = outputIndices.ToArray(),
+                };
+            }
+
+            if (surfaceNode.GroupArchetype.GroupID == CurvesGroupId && surfaceNode.Archetype.TypeID == FloatCurveTypeId)
+            {
+                var keyframes = new List<BezierCurve<float>.Keyframe>();
+                for (int i = 0; i < (int)surfaceNode.Values[0]; i++)
+                {
+                    int idx = i * 4;
+                    var keyframe = new BezierCurve<float>.Keyframe()
+                    {
+                        Time = (float)surfaceNode.Values[idx + 1],
+                        Value = (float)surfaceNode.Values[idx + 2],
+                        TangentIn = (float)surfaceNode.Values[idx + 3],
+                        TangentOut = (float)surfaceNode.Values[idx + 4],
+                    };
+                    keyframes.Add(keyframe);
+                }
+                
+                var curve = new BezierCurve<float>() { Keyframes = keyframes.ToArray() };
+                return new ExpressionGraphNode()
+                {
+                    GroupId = groupId,
+                    TypeId = typeId,
+                    FloatCurve = curve,
+                    InputValues = inputValues.ToArray(),
+                    InputIndices = inputIndices.ToArray(),
                     OutputIndices = outputIndices.ToArray(),
                 };
             }

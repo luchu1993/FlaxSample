@@ -1,4 +1,5 @@
 using System;
+using FlaxEngine;
 
 namespace Game
 {
@@ -13,6 +14,8 @@ namespace Game
         public int[] InputIndices;
         public int[] OutputIndices;
 
+        public BezierCurve<float> FloatCurve;
+        
         public ExpressionGraphContext Context { get; set; }
 
         public void Execute(ExpressionGraphContext context)
@@ -37,6 +40,18 @@ namespace Game
         public T InputAs<T>(int index)
         {
             return CastTo<T>(InputValues[index]);
+        }
+
+        public float EvaluateCurve(float time)
+        {
+            if (FloatCurve == null)
+            {
+                Debug.LogWarning("EvaluateCurve failed: curve is null.");
+                return 0;
+            }
+            
+            FloatCurve.Evaluate(out float result, time);
+            return result;
         }
         
         private T CastTo<T>(object value)

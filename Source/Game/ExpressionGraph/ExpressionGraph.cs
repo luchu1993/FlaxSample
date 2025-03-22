@@ -43,8 +43,10 @@ namespace Game
             AddAction(3, 9, (node) => { node.Return<float>(0, Mathf.Cos(node.InputAs<float>(0))); });
             AddAction(3, 10, (node) => { node.Return<float>(0, Mathf.Floor(node.InputAs<float>(0))); });
             AddAction(3, 15, (node) => { node.Return<float>(0, Mathf.Sin(node.InputAs<float>(0))); });
-            
+            AddAction(3, 31, (node) => { node.Return<float>(0,  node.InputAs<float>(0) * node.InputAs<float>(1) + node.InputAs<float>(2)); });
             AddAction(6, 1, (node) => { node.Return<float>(0, node.InputAs<float>(0));});
+            
+            AddAction(7, 12, (node) => { node.Return<float>(0, node.EvaluateCurve(node.InputAs<float>(0)));});
         }
         
         public ExpressionGraphParameter[] Parameters
